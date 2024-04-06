@@ -14,7 +14,7 @@ public class Restaurant {
 									"Pudim\t\tPhp 25.00", "Doce de Leite\t\tPhp 20.00", "Goiabada\t\tPhp 25.00", "Nata de Coco\tPhp 20.00",
 								"Coca-Cola\t\t\tPhp 30.00", "Sprite\t\t\tPhp 30.00", "Pepsi\t\t\tPhp 25.00", "Guaraná\t\t\tPhp 25.00"};
 		
-		String user, pass, search, again ="", mainQ ="", mainQ2 ="", dessertQ ="", drinksQ ="", drinksQ2 ="";
+		String user, pass, search, again ="", mainQ ="", mainQ2 ="", dessertQ ="", dessertQ2 = "", drinksQ ="", drinksQ2 ="";
 		
 		double orderPrice[] = {0.00, 50.00, 50.00, 100.00, 150.00, 25.00, 20.00, 25.00, 20.00, 30.0, 30.00, 25.00, 25.00 };
 		
@@ -39,10 +39,10 @@ public class Restaurant {
 		}
 		
 		while (a < 3) {
-			System.out.println("\nInforme o nome de usuário: ");	
+			System.out.print("Informe o nome de usuário: ");	
 			user = in.readLine();
 			
-			System.out.println("\nInforme a senha: ");
+			System.out.print("Informe a senha: ");
 			pass = in.readLine();
 			
 			if (user.equalsIgnoreCase("admin") && pass.equalsIgnoreCase("admin")) {
@@ -322,105 +322,218 @@ public class Restaurant {
 						    	 					System.out.println("\nPrato principal não disponivel.");
 						    	 					
 						    	 					mainQ2 = "n";
-						    	 				}
-		   		 						} while (mainQ.equalsIgnoreCase("y"));
-		   		 					} else if (mainQ2.equalsIgnoreCase("n")) {
-		   		 						v = 0;
-		   		 					} else {
-		   		 						System.out.println("Entrada invalida!");
-		   		 						
-		   		 						v = 1;
-		   		 					}
-		   		 				}
-		   		 			}
-			   		 		
-			   		 		if (pieces[5] == 0 && pieces[6] == 0 && pieces[7] == 0 && pieces[8] == 0) {
-			   		 			System.out.println("\nPrato principal não disponivel");
-			   		 		} else {
-			   		 			for (int v = 1; v == 1;) {
-			   		 				System.out.println("\nGostaria de solicitar sobremesa? [Y/N]: ");
-			   		 				
-			   		 				dessertQ = in.readLine();
-			   		 				
-			   		 				if (dessertQ.equalsIgnoreCase("y")) {
-			   		 					do {
-				   		 					System.out.println("\n\t ********** SOBREMESA **********");
-						    	 			System.out.println(" **************************************");
-							    	 		System.out.println(" NOME\t\t\t\tPREÇO");
-							    	 		
-							    	 		System.out.print("1) Pudim \t\tPhp 25.00");
-							    	 		
-							    	 		if (pieces[5] > 0) {
-							    	 			System.out.println("\t" + pieces[5] + "pcs.");
-							    	 		} else {
-							    	 			System.out.println("\t * Não disponivel *");
-							    	 		}
-							    	 		
-							    	 		System.out.println("2) Doce de Leite \t\tPhp 20.00");
-							    	 		
-							    	 		if (pieces[6] > 0) {
-							    	 			System.out.println("\t" + pieces[6] + "pcs.");
-							    	 		} else {
-							    	 			System.out.println("\t * Não disponivel *");
-							    	 		}
-							    	 		
-							    	 		System.out.println("3) Goiabada \t\tPhp 25.00");
-							    	 		
-							    	 		if (pieces[7] > 0) {
-							    	 			System.out.println("\t" + pieces[7] + "pcs." );
-							    	 		} else {
-							    	 			System.out.println("\t * Não disponivel *");
-							    	 		}
-							    	 		
-							    	 		System.out.println("4) Nata de Coco \tPhp 20.00");
-							    	 		
-							    	 		if (pieces[8] > 0) {
-							    	 			System.out.println("\t" + pieces[8] + "pcs.");
-							    	 		} else {
-							    	 			System.out.println("\t * Não disponivel *");
-							    	 		}
-							    	 		
-							    	 		System.out.println (" **************************************");
-							    	 		
-							    	 		for (e = 1; e == 1;) {
-							    	 			System.out.println("\nInsira o seu pedido: ");
-							    	 			order = Integer.parseInt(in.readLine());
-							    	 			
-							    	 			order += 4;
-							    	 			
-							    	 			for (v = 5; v <= 8; v++) {
-							    	 				if (order == v) {
-							    	 					if (orderString[b][v].equals("1")) {
-							    	 						System.out.println("Sobremesa já selecionada.");
-							    	 						
-							    	 						e = 1;
-							    	 					} else if (pieces[v] == 0) {
-							    	 						System.out.println("Sobremesa não disponivel.");
-							    	 						
-							    	 						e = 1;
-							    	 					} else {
-							    	 						e = 0;
-							    	 					}
 							    	 				}
-							    	 			}
-							    	 			
-							    	 			if (order < 5 || order > 8) {
-								    	 			System.out.println("Entrada invalida.");
-								    	 			
-								    	 			e = 1;
-								    	 		}
-							    	 		}
-							    	 		
-							    	 		
-							    	 		
-			   		 					} while (dessertQ.equalsIgnoreCase("y"));
+			   		 						} while (mainQ.equalsIgnoreCase("y"));
+			   		 					} else if (mainQ2.equalsIgnoreCase("n")) {
+			   		 						v = 0;
+			   		 					} else {
+			   		 						System.out.println("Entrada invalida!");
+			   		 						
+			   		 						v = 1;
+			   		 					}
 			   		 				}
 			   		 			}
-			   		 		}
-			   		 			
-			   		 			
-		   		 			
-		   		 			
+				   		 		
+				   		 		if (pieces[5] == 0 && pieces[6] == 0 && pieces[7] == 0 && pieces[8] == 0) {
+				   		 			System.out.println("\nPrato principal não disponivel");
+				   		 		} else {
+				   		 			for (int v = 1; v == 1;) {
+				   		 				System.out.println("\nGostaria de solicitar sobremesa? [Y/N]: ");
+				   		 				
+				   		 				dessertQ = in.readLine();
+				   		 				
+				   		 				if (dessertQ.equalsIgnoreCase("y")) {
+				   		 					do {
+					   		 					System.out.println("\n\t ********** SOBREMESA **********");
+							    	 			System.out.println(" **************************************");
+								    	 		System.out.println(" NOME\t\t\t\tPREÇO");
+								    	 		
+								    	 		System.out.print("1) Pudim \t\tPhp 25.00");
+								    	 		
+								    	 		if (pieces[5] > 0) {
+								    	 			System.out.println("\t" + pieces[5] + "pcs.");
+								    	 		} else {
+								    	 			System.out.println("\t * Não disponivel *");
+								    	 		}
+								    	 		
+								    	 		System.out.println("2) Doce de Leite \t\tPhp 20.00");
+								    	 		
+								    	 		if (pieces[6] > 0) {
+								    	 			System.out.println("\t" + pieces[6] + "pcs.");
+								    	 		} else {
+								    	 			System.out.println("\t * Não disponivel *");
+								    	 		}
+								    	 		
+								    	 		System.out.println("3) Goiabada \t\tPhp 25.00");
+								    	 		
+								    	 		if (pieces[7] > 0) {
+								    	 			System.out.println("\t" + pieces[7] + "pcs." );
+								    	 		} else {
+								    	 			System.out.println("\t * Não disponivel *");
+								    	 		}
+								    	 		
+								    	 		System.out.println("4) Nata de Coco \tPhp 20.00");
+								    	 		
+								    	 		if (pieces[8] > 0) {
+								    	 			System.out.println("\t" + pieces[8] + "pcs.");
+								    	 		} else {
+								    	 			System.out.println("\t * Não disponivel *");
+								    	 		}
+								    	 		
+								    	 		System.out.println (" **************************************");
+								    	 		
+								    	 		for (e = 1; e == 1;) {
+								    	 			System.out.println("\nInsira o seu pedido: ");
+								    	 			order = Integer.parseInt(in.readLine());
+								    	 			
+								    	 			order += 4;
+								    	 			
+								    	 			for (v = 5; v <= 8; v++) {
+								    	 				if (order == v) {
+								    	 					if (orderString[b][v].equals("1")) {
+								    	 						System.out.println("Sobremesa já selecionada.");
+								    	 						
+								    	 						e = 1;
+								    	 					} else if (pieces[v] == 0) {
+								    	 						System.out.println("Sobremesa não disponivel.");
+								    	 						
+								    	 						e = 1;
+								    	 					} else {
+								    	 						e = 0;
+								    	 					}
+								    	 				}
+								    	 			}
+								    	 			
+								    	 			if (order < 5 || order > 8) {
+									    	 			System.out.println("Entrada invalida.");
+									    	 			
+									    	 			e = 1;
+									    	 		}
+								    	 		}
+								    	 		
+								    	 		do {
+								    	 			System.out.println("Quantos? ");
+								    	 			orderDoubleM[b][c] = Double.parseDouble(in.readLine());
+								    	 			
+								    	 			for (v = 5; v <= 8; v++) {
+								    	 				if (order == v) {
+								    	 					orderString[b][c] = "1";
+								    	 					pieces[v] = pieces[v] - orderDoubleM[b][c];
+								    	 					
+								    	 					if (pieces[v] < 0) {
+								    	 						pieces[v] = pieces[v] + orderDoubleM[b][c];
+								    	 						
+								    	 						System.out.println("Desculpe, só temos " + pieces[v] + "pcs, disponivel.");
+								    	 						
+								    	 						v = 9;
+								    	 						r = 1;
+								    	 					} else {
+								    	 						r = 0;
+								    	 					}
+								    	 				}
+								    	 			}
+								    	 		} while (r == 1);
+								    	 		
+								    	 		
+								    	 		orderStringP[b][c] = orderNameP[order];
+								    	 		orderStringM[b][c] = orderNameM[order];
+								    	 		orderDouble[b][c] = orderPrice[order];
+								    	 		
+								    	 		c++;
+								    	 		
+								    	 		for (d = 1; d == 1;) {
+								    	 			System.out.print("\nDeseja solicitar outra sobremesa? [Y/N]: ");
+								    	 			dessertQ2 = in.readLine();
+								    	 			
+								    	 			if (dessertQ2.equalsIgnoreCase("y")) {
+								    	 				d = 0;
+								    	 			} else if (dessertQ2.equalsIgnoreCase("n")) {
+								    	 				d = 0;
+								    	 				dessertQ = "n";
+								    	 			} else {
+								    	 				System.out.println("Entrada invalida.");
+								    	 				
+								    	 				d = 1;
+								    	 			}
+								    	 		}
+								    	 		
+								    	 		if (orderString[b][5].equalsIgnoreCase("1") && orderString[b][6].equals("1") && orderString[b][7].equals("1") && orderString[b][8].equals("1")) {
+								    	 			System.out.println("Desculpe, você já pediu todas as 4 opções de sobremesa.");
+								    	 			
+								    	 			dessertQ2 = "n";
+								    	 		}
+								    	 		
+								    	 		if (pieces[1] == 0 && pieces[2] == 0 && pieces[3] == 0 && pieces[4] == 0) {
+								    	 			System.out.println("\nPrato Principal não disponivel.");
+								    	 			
+								    	 			dessertQ2 = "n";
+								    	 		}
+								    	 		
+				   		 					} while (dessertQ.equalsIgnoreCase("y"));
+				   		 				} else if (dessertQ2.equalsIgnoreCase("n")) {
+				   		 					v = 0;
+				   		 				} else {
+				   		 					System.out.print("Entrada invalida.");
+				   		 					
+				   		 					v = 1;
+				   		 				}
+				   		 			}
+				   		 		}
+				   		 		
+				   		 		if (pieces[5] == 0 && pieces[6] == 0 && pieces[7] == 0 && pieces[8] == 0) {
+				   		 			System.out.println("\nSobremesa não disponivel.");
+				   		 		} else {
+				   		 			for (int v = 1; v == 1;) {
+				   		 				System.out.println("\nDeseja solicitar bebidas? [Y/N]: ");
+				   		 				drinksQ = in.readLine();
+				   		 				
+				   		 				if (drinksQ.equalsIgnoreCase("y")) {
+				   		 					do {
+					   		 					System.out.println ("\n\t ********** BEBIDAS **********");
+								    	 		System.out.println (" **************************************");
+								    	 		System.out.println (" NOME\t\t\t\tPREÇO");
+								    	 		
+								    	 		System.out.print ("1) Coca-Cola \t\t\tPhp 30.00");
+								    	 		
+								    	 		if (pieces[9] > 0) {
+								    	 			System.out.println("\t" + pieces[9] + "pcs.");
+								    	 		} else {
+								    	 			System.out.println("\t * Não Disponivel *");
+								    	 		}
+								    	 		
+								    	 		System.out.print("2) Sprite \t\t\tPhp 30.00");
+								    	 		
+								    	 		if (pieces[10] > 0) {
+								    	 			System.out.println("\t" + pieces[10] + "pcs.");
+								    	 		} else {
+								    	 			System.out.println("\t * Não Disponivel*");
+								    	 		}
+								    	 		
+								    	 		System.out.print("3) Pepsi \t\t\tPhp 25.00");
+								    	 		
+								    	 		if (pieces[11] > 0) {
+								    	 			System.out.println("\t" + pieces[11] + "pcs.");
+								    	 		} else {
+								    	 			System.out.println("\t * Não Disponivel*");
+								    	 		}
+								    	 		
+								    	 		System.out.print("4) Guaraná \t\t\tPhp 25.00");
+								    	 		
+								    	 		if (pieces[12] > 0) {
+								    	 			System.out.println("\t" + pieces[12] + "pcs.");
+								    	 		} else {
+								    	 			System.out.println("\t * Não Disponivel*");
+								    	 		}
+								    	 		
+								    	 		System.out.println (" **************************************");
+								    	 		
+								    	 		
+								    	 		
+				   		 					} while(drinksQ2.equalsIgnoreCase("y"));
+				   		 				}
+				   		 			}
+				   		 		}
+				 			
 		   		 			} while (r == 1);
 		   		 		}
 		   		 		
