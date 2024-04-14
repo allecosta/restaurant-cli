@@ -527,51 +527,298 @@ public class Restaurant {
 								    	 		
 								    	 		System.out.println (" **************************************");
 								    	 		
+								    	 		for (e = 1; r == 1;) {
+								    	 			System.out.print("\nInsira o seu pedido: ");
+								    	 			order = Integer.parseInt(in.readLine());
+								    	 			
+								    	 			order += 8;
+								    	 			
+								    	 			for (v = 9; v <= 12; v++) {
+								    	 				if (order == v) {
+								    	 					if (orderString[b][v].equals("1")) {
+								    	 						System.out.println("Esta bebida já existe na lista!");
+								    	 						
+								    	 						e = 1;
+								    	 					} else {
+								    	 						e = 0;
+								    	 					}
+								    	 				}
+								    	 			}
+								    	 			
+								    	 			if (order < 9 || order > 12) {
+								    	 				System.out.println("Entrada invalida!");
+								    	 				
+								    	 				e = 1;
+								    	 			}
+								    	 		}
 								    	 		
+								    	 		orderStringP[b][c] = orderNameP[order];
+								    	 		orderStringM[b][c] = orderNameM[order];
+								    	 		orderDouble[b][c] = orderPrice[order];
+								    	 		
+								    	 		do {
+								    	 			System.out.print("Quantos? ");
+								    	 			orderDoubleM[b][c] = Double.parseDouble(in.readLine());
+								    	 			
+								    	 			for (v = 9; v <= 12; v++) {
+								    	 				if (order == v) {
+								    	 					orderString[b][c] = "1";
+								    	 					pieces[v] = pieces[v] - orderDoubleM[b][c];
+								    	 					
+								    	 					if (pieces[v] < 0) {
+								    	 						pieces[v] = pieces[v] + orderDoubleM[b][c];
+								    	 						
+								    	 						System.out.println("Desculpe, só temos " + pieces[v] + "pcs, disponivel.");
+								    	 						
+								    	 						v = 13;
+								    	 						r = 1;
+								    	 					} else {
+								    	 						r = 0;
+								    	 					}
+								    	 				}
+								    	 			}
+								    	 		} while (r == 1);
+								    	 		
+								    	 		c++;
+								    	 		
+								    	 		for (d = 1; d == 1;) {
+								    	 			System.out.print("\nDeseja solicitar outra bebida? [Y/N]: ");
+								    	 			drinksQ2 = in.readLine();
+								    	 			
+								    	 			if (drinksQ2.equalsIgnoreCase("y")) {
+								    	 				d = 0;
+								    	 				c++;
+								    	 			} else if (drinksQ2.equalsIgnoreCase("n")) {
+								    	 				System.out.print("");
+								    	 				
+								    	 				d = 0;
+								    	 				f = 0;
+								    	 			} else {
+								    	 				System.out.print("Entrada invalida!");
+								    	 				
+								    	 				d = 1;
+								    	 			}
+								    	 		}
+								    	 		
+								    	 		if (orderString[b][9].equals("1") && orderString[b][10].equals("1") && orderString[b][11].equals("1") && orderString[b][12].equals("1")) {
+								    	 			System.out.print("Desculpe, você já pediu todas as 4 opções de bebidas.");
+								    	 			
+								    	 			drinksQ = "n";
+								    	 			f = 0;
+								    	 		}
+								    	 		
+								    	 		if (pieces[9] == 0 && pieces[10] == 0 && pieces[11] == 0 & pieces[12] == 0) {
+								    	 			System.out.println("\nBebida não disponivel.");
+								    	 			
+								    	 			drinksQ2 = "n";
+								    	 			f = 0;
+								    	 		}
 								    	 		
 				   		 					} while(drinksQ2.equalsIgnoreCase("y"));
+				   		 				} else if (drinksQ.equalsIgnoreCase("n")) {
+				   		 					v = 0;
+				   		 					f = 0;
+				   		 				} else {
+				   		 					System.out.print("Entrada invalida.");
+				   		 					
+				   		 					v = 1;
 				   		 				}
 				   		 			}
 				   		 		}
+				   		 		
+				   		 		if (c == 0) {
+				   		 			System.out.println("Você não tem nenhum pedido.");
+				   		 			
+				   		 			r = 1;
+				   		 		} else {
+				   		 			c--;
+				   		 		}
 				 			
 		   		 			} while (r == 1);
+		   		 			
+		   		 			tableNo[b] = table;
+		   		 			totalOrder[b] = c;
+		   		 			paid[b] = 0;
+		   		 			
+		   		 			System.out.println("\nVocê é a mesa Nº " + tableNo[b]);
+		   		 			System.out.println("Seu pedido: ");
+		   		 			
+		   		 			for (int y = 0; y <= totalOrder[b]; y++) {
+		   		 				System.out.println(" " + orderDoubleM[b][y] + " pcs. \t" + orderStringM[b][y]);
+		   		 				
+		   		 				totalPrice[b] = totalPrice[b] + (orderDouble[b][y] * orderDoubleM[b][y]);
+		   		 			}
+		   		 			
+		   		 			table++;
+		   		 			b++;
+		   		 		} else if (choice == 2) {
+		   		 			do {
+		   		 				System.out.println("\nInsira o nome do cliente: ");
+		   		 				search = in.readLine();
+		   		 				
+		   		 				int s = 1;
+		   		 				
+		   		 				for (int x = 0; x < b; x++) {
+		   		 					if (search.equalsIgnoreCase(orderString[x][0])) {
+		   		 						System.out.println(" ******   INFORMAÇÕES DO PEDIDO DO CLIENTE   *******");
+		   		 						System.out.println(" Nome: " + orderString[x][0]);
+		   		 						System.out.println("Nº Mesa: " + tableNo[x]);
+		   		 						System.out.println(" Pedido: ");
+		   		 						
+		   		 						for (int y = 0; y <= totalOrder[x]; y++) {
+		   		 							System.out.println(" " + orderDouble[x][y] + " pcs \t" + orderStringP[x][y]);
+		   		 						}
+		   		 						
+		   		 						System.out.println(" --------------------------------------");
+		   		 						System.out.print("Fatura Total: " + totalPrice[x]);
+		   		 						
+		   		 						if (paid[x] == 1) {
+		   		 							System.out.println("* PAGO *");
+		   		 							System.out.println("**************************************");
+		   		 						} else {
+		   		 							System.out.println("*NÃO PAGO*");
+		   		 							System.out.println ("**************************************");
+		   		 							System.out.println("\nFavor, realizar o pagamento.");
+		   		 						}
+		   		 						
+		   		 						 s = 0;
+		   		 					}
+		   		 				}
+		   		 				
+		   		 				if (s == 1) {
+		   		 					System.out.println("Nome do cliente não encontrado.");
+		   		 					
+		   		 					g = 1;
+		   		 				} else {
+		   		 					g = 0;
+		   		 				}
+		   		 				
+		   		 				f = 0;	
+		   		 			} while (g == 1);
+		   		 		} else if (choice == 3) {
+		   		 			do {
+		   		 				System.out.println("\nInsira o nome do cliente: ");
+		   		 				search = in.readLine();
+		   		 				
+		   		 				int s = 1;
+		   		 				
+		   		 				for (int x = 0; x < b; x++) {
+		   		 					if (search.equalsIgnoreCase(orderString[x][0])) {
+		   		 						System.out.println(" ****   RECIBO DO PEDIDO DO CLIENTE   ****");
+		   		 						System.out.println("Nome: " + orderString[x][0]);
+		   		 						System.out.println("Nº Mesa: " + tableNo[x]);
+		   		 						System.out.println("Pedido: ");
+		   		 						
+		   		 						for (int y = 0; y <= totalOrder[x]; y++) {
+		   		 							System.out.println(" " + orderDoubleM[x][y] + " pcs \t" + orderStringP[x][y]);
+		   		 						}
+		   		 						
+		   		 						System.out.println (" **************************************");
+		   		 						System.out.println("Fatura Total: " + totalPrice[x]);
+		   		 						
+		   		 						if (paid[x] == 1) {
+		   		 							System.out.println("* PAGO *");
+		   		 							System.out.println (" **************************************");
+		   		 						} else {
+		   		 							System.out.println ("\n **************************************");
+		   		 							
+		   		 							for (int m = 1; m == 1;) {
+		   		 								System.out.println("Insira o pagamento: ");
+		   		 								payment = Double.parseDouble(in.readLine());
+		   		 								
+		   		 								change = payment - totalPrice[x];
+		   		 								
+		   		 								if (change < 0) {
+		   		 									m = 1;
+		   		 									
+		   		 									System.out.println("Saldo insuficiente. Favor tentar novamente!");
+		   		 								} else {
+		   		 									paid[x] = 1;
+		   		 									m = 0;
+		   		 								}
+		   		 							}
+		   		 							
+		   		 							System.out.println("Alteração: " + change);
+		   		 						}
+		   		 						
+		   		 						s = 0;
+		   		 					}
+		   		 				}
+		   		 				
+		   		 				if (s == 1) {
+		   		 					System.out.println("Nome do cliente não encontrado.");
+		   		 					
+		   		 					h = 1;
+		   		 				} else {
+		   		 					h = 0;
+		   		 				}
+		   		 				
+		   		 				f = 0;
+		   		 			} while (h == 1);
+		   		 		} else if (choice == 4) {
+			   		 		System.out.println(" ********** INVENTÁRIO **********");
+			    	 		System.out.println (" **************************************");
+			    	 		System.out.println ("\n   *********** PRATO PRINCIPAL ***********");
+			    	 		System.out.println ("   **********************************");
+			    	 		
+			    	 		for (int z = 1; z <= 4; z++) {
+			    	 			System.out.println(" \t" + pieces[z] + " pcs \t\t" + orderNameM[z]);
+			    	 		}
+			    	 		
+			    	 		System.out.println ("   ************ SOBREMESA *************");
+			    	 		System.out.println ("   **********************************");
+			    	 		
+			    	 		for (int z = 5; z <= 8; z++) {
+			    	 			System.out.println(" \t" + pieces[z] + " pcs \t\t" + orderNameM[z]);
+			    	 		}
+			    	 		
+			    	 		System.out.println ("   ************* BEBIDAS *************");
+			    	 		System.out.println ("   **********************************");
+			    	 		
+			    	 		for (int z = 9; z <= 12; z++) {
+			    	 			System.out.println(" \t" + pieces[z] + " pcs \t\t" + orderNameM[z]);
+			    	 		}
+			    	 		
+			    	 		System.out.println (" **************************************");
+			    	 		
+			    	 		f = 0;
+		   		 		} else if (choice == 5) {
+		   		 			f = 0;
+		   		 			end = 1;
+		   		 			again = "n";
+		   		 			
+		   		 			System.out.println("Agradecemos a sua presença e volte sempre!");
+		   		 		} else {
+		   		 			System.out.println("Entrada invalida");
+		   		 			
+		   		 			f = 1;
 		   		 		}
-		   		 		
+		   		 	}
+		   		 	
+		   		 	if (end == 0) {
+		   		 		do {
+		   		 			System.out.print("\nDeseja realizar outra transação [Y/N]? ");
+		   		 			again = in.readLine();
+		   		 			
+		   		 			if (again.equalsIgnoreCase("n")) {
+		   		 				i = 0;
+		   		 			} else if (again.equalsIgnoreCase("y")) {
+		   		 				i = 0;
+		   		 			} else {
+		   		 				System.out.println("Entrada invalida!");
+		   		 				i = 1;
+		   		 			}
+		   		 		} while (i == 1);
 		   		 	}
 		   		 	
 	   		 	} while (again.equalsIgnoreCase("y"));
+	   		 	
+	   		 	break;
+			} else {
+				System.out.println("Usuário ou senha invalida!");
+				
+				a++;
 			}
-			
-			
-			
-			
-			
-			
-			
-			//"Camarão\tPhp 50.00", "Bobó\tPhp 50.00", "Feijão\tPhp 100.00", "Arroz\tPhp 150.00",
-			//"Pudim\t\tPhp 25.00", "Doce de Leite\t\tPhp 20.00", "Goiabada\t\tPhp 25.00", "Nata de Coco\tPhp 20.00",
-			//"Coca-Cola\t\t\tPhp 30.00", "Sprite\t\t\tPhp 30.00", "Pepsi\t\t\tPhp 25.00", "Guaraná\t\t\tPhp 25.00"};
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		}
-		
-		
 	}
 }
