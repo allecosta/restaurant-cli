@@ -18,14 +18,14 @@ public class Restaurant {
 		
 		double orderPrice[] = {0.00, 50.00, 50.00, 100.00, 150.00, 25.00, 20.00, 25.00, 20.00, 30.0, 30.00, 25.00, 25.00 };
 		
-		int a = 0, b = 0, c = 0, d = 0, e = 1, g = 0, h = 0, i = 0, r = 0, choice = 0, choice1 = 0, order = 0, table = 1, end = 0;
+		int a = 0, b = 0, c = 0, d = 0, e = 1, g = 0, h = 0, i = 0, r = 0, choice = 0, order = 0, table = 1, end = 0;
 		
 		String orderString[][] = new String[50][20];
 		String orderStringM[][] = new String[20][20];
 		String orderStringP[][] = new String[20][20];
 		
 		double orderDoubleM[][] = new double[50][20];
-		double orderDoubleD[][] = new double[50][20];
+		//double orderDoubleD[][] = new double[50][20];
 		double tableNo[] = new double[21];
 		double pieces[] = new double[13];
 		double paid[] = new double[21];
@@ -46,23 +46,23 @@ public class Restaurant {
 			pass = in.readLine();
 			
 			if (user.equalsIgnoreCase("admin") && pass.equalsIgnoreCase("admin")) {
-				System.out.println ("\n ******************************************************");
-	    		System.out.println (" ********** BEM VINDO(a) AO FERREIRA COSTA **********");
-	   		 	System.out.println (" *******************************************************");
+				System.out.println ("\n****************************************************");
+				System.out.println ("********** BEM VINDO(a) AO FERREIRA COSTA **********");
+	   		 	System.out.println ("****************************************************");
 	   		 	
 	   		 	do {
-		   		 	System.out.println ("\n **************************************");
-		    		System.out.println (" ********** CARDAPIO PRINCIPAL **********");
-		   		 	System.out.println (" ****************************************");
-		   		 	System.out.println("1) - PEDIDO");
-		   		 	System.out.println("2) - INFORMAÇÃO DO PEDIDO");
-		   		 	System.out.println("3) - VALOR A COBRAR");
-		   		 	System.out.println("4) - INVENTÁRIO DE PRATOS");
-		   		 	System.out.println("5) - SAIR");
-		   		 	System.out.println (" ***************************************");
+		   		 	//System.out.println ("\n **************************************");
+		    		System.out.println ("\n ************** MENU **************");
+		   		 	System.out.println (" **********************************");
+		   		 	System.out.println("1) PEDIDO");
+		   		 	System.out.println("2) INFORMAÇÃO DO PEDIDO");
+		   		 	System.out.println("3) VALOR A COBRAR");
+		   		 	System.out.println("4) INVENTÁRIO DE PRATOS");
+		   		 	System.out.println("5) SAIR");
+		   		 	System.out.println (" **********************************");
 		   		 	
 		   		 	for (int f = 1; f == 1;) {
-		   		 		System.out.println("\nInforme a sua escolha: ");
+		   		 		System.out.print("\nInforme a sua escolha: ");
 		   		 		choice = Integer.parseInt(in.readLine());
 		   		 		
 		   		 		if (choice == 1) {
@@ -72,12 +72,12 @@ public class Restaurant {
 		   		 				}
 		   		 				
 		   		 				for (int x = 1; x == 1;) {
-		   		 					System.out.println("\nInforme o nome do cliente: ");
+		   		 					System.out.print("Informe o nome do cliente: ");
 		   		 					orderString[b][0] = in.readLine();
 		   		 					
 		   		 					x = 0;
 		   		 					
-		   		 					for (int l = 0; l <= b; l++) {
+		   		 					for (int l = 0; l < b; l++) {
 		   		 						if (orderString[l][0].equalsIgnoreCase(orderString[b][0])) {
 		   		 							System.out.println("Nome do cliente já utilizado!");
 		   		 							
@@ -88,156 +88,156 @@ public class Restaurant {
 		   		 				
 			   		 			c = 0;
 			   		 				
-			   		 			System.out.println("\n *************************************");
-				    			System.out.println(" ************* CARDAPIO ************* ");
-				    			System.out.println(" *************************************");
-				    			System.out.println("\n    ********** CARDAPIO PRINCIPAL **********");
+			   		 			//System.out.println("\n *************************************");
+				    			//System.out.println(" ************* CARDAPIO ************* ");
+				    			//System.out.println(" *************************************");
+				    			System.out.println("\n\n    *********** PRINCIPAL ***********");
 				    			
-			   		 			System.out.println("\n Camarão \t\tPhp 50.00");
+			   		 			System.out.println("\nCamarão \t\tPreço: 50.00");
 			   		 			
 			   		 			if (pieces[1] > 0) {
-			   		 				System.out.println("\t" + pieces[1] + "pcs.");
+			   		 				System.out.println("\t" + pieces[1] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println("Bobó \t\tPhp 50.00");
+			   		 			System.out.println("Bobó \t\tPreço 50.00");
 			   		 			
 			   		 			if (pieces[2] > 0) {
-			   		 				System.out.println("\t" + pieces[2] + "pcs.");
+			   		 				System.out.println("\t" + pieces[2] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println("Feijão \t\tPhp 150.00");
+			   		 			System.out.println("Feijão \t\tPreço 150.00");
 			   		 			
 			   		 			if (pieces[3] > 0) {
-			   		 				System.out.println("\t" + pieces[3] + "pcs.");
+			   		 				System.out.println("\t" + pieces[3] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println("Arroz \t\tPhp 150.00");
+			   		 			System.out.println("Arroz \t\tPreço 150.00");
 			   		 			
 			   		 			if (pieces[4] > 0) {
-			   		 				System.out.println("\t" + pieces[4] + "pcs.");
+			   		 				System.out.println("\t" + pieces[4] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
 			   		 			System.out.println ("\n    *********** SOBREMESA ***********");
-			   		 			System.out.println("Pudim \t\t\tPhp 25.00");
+			   		 			System.out.println("Pudim \t\tPreço 25.00");
 			   		 			
 			   		 			if (pieces[5] > 0) {
-			   		 				System.out.println("\t" + pieces[5] + "pcs.");
+			   		 				System.out.println("\t" + pieces[5] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println("Doce de Leite \t\t\tPhp 20.00");
+			   		 			System.out.println("Doce de Leite \t\tPreço 20.00");
 			   		 			
 			   		 			if (pieces[6] > 0) {
-			   		 				System.out.println("\t" + pieces[7] + "pcs.");
+			   		 				System.out.println("\t" + pieces[7] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println("Goiabada \t\t\tPhp 25.00");
+			   		 			System.out.println("Goiabada \t\tPreço 25.00");
 			   		 			
 			   		 			if (pieces[7] > 0) {
-			   		 				System.out.println("\t" + pieces[7] + "pcs.");
+			   		 				System.out.println("\t" + pieces[7] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println("Nata de Coco \t\tPhp 20.00");
+			   		 			System.out.println("Nata de Coco \t\tPreço 20.00");
 			   		 			
 			   		 			if (pieces[8] > 0) {
-			   		 				System.out.println("\t" + pieces[8] + "pcs.");
+			   		 				System.out.println("\t" + pieces[8] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel");
 			   		 			}
 			   		 			
 			   		 			System.out.println("\n    *********** BEBIDAS ************");
-			   		 			System.out.println("Coca-Cola \t\t\t\tPhp 30.00");
+			   		 			System.out.println("Coca-Cola \t\tPreço 30.00");
 			   		 			
 			   		 			if (pieces[9] > 0) {
-			   		 				System.out.println("\t" + pieces[9] + "pcs.");
+			   		 				System.out.println("\t" + pieces[9] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println("Sprite \t\t\t\tPhp 30.00");
+			   		 			System.out.println("Sprite \t\tPreço 30.00");
 			   		 			
 			   		 			if (pieces[10] > 0) {
-			   		 				System.out.println("\t" + pieces[10] + "pcs.");
+			   		 				System.out.println("\t" + pieces[10] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println("Pepsi \t\t\t\tPhp 25.00");
+			   		 			System.out.println("Pepsi \t\tPreço 25.00");
 			   		 			
 			   		 			if (pieces[11] > 0) {
-			   		 				System.out.println("\t" + pieces[11] + "pcs.");
+			   		 				System.out.println("\t" + pieces[11] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println("Guaraná \t\t\t\tPhp 25.00");
+			   		 			System.out.println("Guaraná \t\tPreço 25.00");
 			   		 			
 			   		 			if (pieces[12] > 0) {
-			   		 				System.out.println("\t" + pieces[12] + "pcs.");
+			   		 				System.out.println("\t" + pieces[12] + " pcs.");
 			   		 			} else {
 			   		 				System.out.println("\t * Não Disponivel *");
 			   		 			}
 			   		 			
-			   		 			System.out.println (" *************************************");
+			   		 			System.out.println ("\n****************************************************");
 			   		 			
 			   		 			if (pieces[1] == 0 && pieces[2] == 0 && pieces[3] == 0 && pieces[4] == 0) {
 			   		 				System.out.println("\n Prato Principal Não Disponivel!");
 			   		 			} else {
 			   		 				for (int v = 1; v == 1;) {
-			   		 					System.out.println("\nVocê deseja pedir o prato principal? [Y/N]: ");
+			   		 					System.out.print("\nVocê deseja pedir o prato principal? [Y/N]: ");
 			   		 					mainQ = in.readLine();
 			   		 					
 			   		 					if (mainQ.equalsIgnoreCase("y")) {
 			   		 						do {
-				   		 						System.out.println ("\n\t ********** PRATO PRINCIPAL **********");
-						    	 				System.out.println (" **************************************");
+				   		 						//System.out.println ("\n\t ********** PRATO PRINCIPAL **********");
+						    	 				System.out.println ("\n****************************************************");
 						    	 				System.out.println (" NOME \t\t\t\t PREÇO");
-						    	 				System.out.print (" 1) Camarão " + "\tPhp 50.00");
+						    	 				System.out.println ("1) Camarão " + "\t\t\t 50.00");
 						    	 				
 						    	 				if (pieces[1] > 0) {
-						    	 					System.out.println("\t" + pieces[1] + "pcs.");
+						    	 					System.out.println("\t" + pieces[1] + " pcs.");
 						    	 				} else {
 						    	 					System.out.println("\t * Não Disponivel *");
 						    	 				}
 						    	 				
-						    	 				System.out.println("2) Bobó " + "\tPhp 50.00");
+						    	 				System.out.println("2) Bobó " + "\t\t\t 50.00");
 						    	 				
 						    	 				if (pieces[2] > 0) {
-						    	 					System.out.println("\t" + pieces[2] + "pcs.");
+						    	 					System.out.println("\t" + pieces[2] + " pcs.");
 						    	 				} else {
 						    	 					System.out.println("\t * Não Disponivel *");
 						    	 				}
 						    	 				
-						    	 				System.out.println("3) Feijão " + "\tPhp 100.00");
+						    	 				System.out.println("3) Feijão " + "\t\t\t 100.00");
 						    	 				
 						    	 				if (pieces[3] > 0) {
-						    	 					System.out.println("\t" + pieces[3] + "pcs.");
+						    	 					System.out.println("\t" + pieces[3] + " pcs.");
 						    	 				} else {
 						    	 					System.out.println("\t * Não Disponivel *");
 						    	 				}
 						    	 				
-						    	 				System.out.println("4) Arroz " + "\tPhp 100.00");
+						    	 				System.out.println("4) Arroz " + "\t\t\t 100.00");
 						    	 				
 						    	 				if (pieces[4] > 0) {
-						    	 					System.out.println("\t" + pieces[4] + "pcs.");
+						    	 					System.out.println("\t" + pieces[4] + " pcs.");
 						    	 				} else {
 						    	 					System.out.println("\t Não Disponivel");
 						    	 				}
 						    	 				
-						    	 				System.out.println (" **************************************");
+						    	 				System.out.println ("****************************************************");
 						    	 				
 						    	 				for (e = 1; e == 1;) {
 						    	 					System.out.print("\nInsira o seu pedido: ");
@@ -267,7 +267,7 @@ public class Restaurant {
 						    	 				}
 						    	 				
 						    	 				do {
-						    	 					System.out.println("Quantos? ");
+						    	 					System.out.print("Quantos? ");
 						    	 					orderDoubleM[b][c] = Double.parseDouble(in.readLine());
 						    	 					
 						    	 					for (v = 1; v == 4; v++) {
@@ -344,43 +344,43 @@ public class Restaurant {
 				   		 				
 				   		 				if (dessertQ.equalsIgnoreCase("y")) {
 				   		 					do {
-					   		 					System.out.println("\n\t ********** SOBREMESA **********");
-							    	 			System.out.println(" **************************************");
+					   		 					//System.out.println("\n\t ********** SOBREMESA **********");
+							    	 			System.out.println("\n****************************************************");
 								    	 		System.out.println(" NOME\t\t\t\tPREÇO");
 								    	 		
-								    	 		System.out.print("1) Pudim \t\tPhp 25.00");
+								    	 		System.out.println("1) Pudim \t\t\t 25.00");
 								    	 		
 								    	 		if (pieces[5] > 0) {
-								    	 			System.out.println("\t" + pieces[5] + "pcs.");
+								    	 			System.out.println("\t" + pieces[5] + " pcs.");
 								    	 		} else {
 								    	 			System.out.println("\t * Não disponivel *");
 								    	 		}
 								    	 		
-								    	 		System.out.println("2) Doce de Leite \t\tPhp 20.00");
+								    	 		System.out.println("2) Doce de Leite \t\t\t 20.00");
 								    	 		
 								    	 		if (pieces[6] > 0) {
-								    	 			System.out.println("\t" + pieces[6] + "pcs.");
+								    	 			System.out.println("\t" + pieces[6] + " pcs.");
 								    	 		} else {
 								    	 			System.out.println("\t * Não disponivel *");
 								    	 		}
 								    	 		
-								    	 		System.out.println("3) Goiabada \t\tPhp 25.00");
+								    	 		System.out.println("3) Goiabada \t\t\t 25.00");
 								    	 		
 								    	 		if (pieces[7] > 0) {
-								    	 			System.out.println("\t" + pieces[7] + "pcs." );
+								    	 			System.out.println("\t" + pieces[7] + " pcs." );
 								    	 		} else {
 								    	 			System.out.println("\t * Não disponivel *");
 								    	 		}
 								    	 		
-								    	 		System.out.println("4) Nata de Coco \tPhp 20.00");
+								    	 		System.out.println("4) Nata de Coco \t\t\t 20.00");
 								    	 		
 								    	 		if (pieces[8] > 0) {
-								    	 			System.out.println("\t" + pieces[8] + "pcs.");
+								    	 			System.out.println("\t" + pieces[8] + " pcs.");
 								    	 		} else {
 								    	 			System.out.println("\t * Não disponivel *");
 								    	 		}
 								    	 		
-								    	 		System.out.println (" **************************************");
+								    	 		System.out.println ("****************************************************");
 								    	 		
 								    	 		for (e = 1; e == 1;) {
 								    	 			System.out.println("\nInsira o seu pedido: ");
@@ -423,7 +423,7 @@ public class Restaurant {
 								    	 					if (pieces[v] < 0) {
 								    	 						pieces[v] = pieces[v] + orderDoubleM[b][c];
 								    	 						
-								    	 						System.out.println("Desculpe, só temos " + pieces[v] + "pcs, disponivel.");
+								    	 						System.out.println("Desculpe, só temos " + pieces[v] + " pcs, disponivel.");
 								    	 						
 								    	 						v = 9;
 								    	 						r = 1;
@@ -489,43 +489,43 @@ public class Restaurant {
 				   		 				
 				   		 				if (drinksQ.equalsIgnoreCase("y")) {
 				   		 					do {
-					   		 					System.out.println ("\n\t ********** BEBIDAS **********");
-								    	 		System.out.println (" **************************************");
+					   		 					//System.out.println ("\n\t ********** BEBIDAS **********");
+								    	 		System.out.println ("\n****************************************************");
 								    	 		System.out.println (" NOME\t\t\t\tPREÇO");
 								    	 		
-								    	 		System.out.print ("1) Coca-Cola \t\t\tPhp 30.00");
+								    	 		System.out.print ("1) Coca-Cola \t\t\t 30.00");
 								    	 		
 								    	 		if (pieces[9] > 0) {
-								    	 			System.out.println("\t" + pieces[9] + "pcs.");
+								    	 			System.out.println("\t" + pieces[9] + " pcs.");
 								    	 		} else {
 								    	 			System.out.println("\t * Não Disponivel *");
 								    	 		}
 								    	 		
-								    	 		System.out.print("2) Sprite \t\t\tPhp 30.00");
+								    	 		System.out.print("2) Sprite \t\t\t 30.00");
 								    	 		
 								    	 		if (pieces[10] > 0) {
-								    	 			System.out.println("\t" + pieces[10] + "pcs.");
+								    	 			System.out.println("\t" + pieces[10] + " pcs.");
 								    	 		} else {
 								    	 			System.out.println("\t * Não Disponivel*");
 								    	 		}
 								    	 		
-								    	 		System.out.print("3) Pepsi \t\t\tPhp 25.00");
+								    	 		System.out.print("3) Pepsi \t\t\t 25.00");
 								    	 		
 								    	 		if (pieces[11] > 0) {
-								    	 			System.out.println("\t" + pieces[11] + "pcs.");
+								    	 			System.out.println("\t" + pieces[11] + " pcs.");
 								    	 		} else {
 								    	 			System.out.println("\t * Não Disponivel*");
 								    	 		}
 								    	 		
-								    	 		System.out.print("4) Guaraná \t\t\tPhp 25.00");
+								    	 		System.out.print("4) Guaraná \t\t\t 25.00");
 								    	 		
 								    	 		if (pieces[12] > 0) {
-								    	 			System.out.println("\t" + pieces[12] + "pcs.");
+								    	 			System.out.println("\t" + pieces[12] + " pcs.");
 								    	 		} else {
 								    	 			System.out.println("\t * Não Disponivel*");
 								    	 		}
 								    	 		
-								    	 		System.out.println (" **************************************");
+								    	 		System.out.println ("****************************************************");
 								    	 		
 								    	 		for (e = 1; r == 1;) {
 								    	 			System.out.print("\nInsira o seu pedido: ");
@@ -815,7 +815,7 @@ public class Restaurant {
 	   		 	
 	   		 	break;
 			} else {
-				System.out.println("Usuário ou senha invalida!");
+				System.out.println("\nUsuário ou senha invalida!\n");
 				
 				a++;
 			}
